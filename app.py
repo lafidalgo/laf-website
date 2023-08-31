@@ -3,6 +3,15 @@ from pathlib import Path
 import streamlit as st
 from PIL import Image
 
+import requests
+
+# --- REQUEST SETTINGS ---
+URL = "https://test-fastapi-ik0j.onrender.com"
+
+request = requests.get(url=URL)
+data_request = request.json()
+name = data_request['name']
+surname = data_request['surname']
 
 # --- PATH SETTINGS ---
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
@@ -14,7 +23,7 @@ profile_pic = current_dir / "assets" / "profile-pic.png"
 # --- GENERAL SETTINGS ---
 PAGE_TITLE = "Digital CV | John Doe"
 PAGE_ICON = ":wave:"
-NAME = "John Doe"
+NAME = f'{name}  {surname}'
 DESCRIPTION = """
 Senior Data Analyst, assisting enterprises by supporting data-driven decision-making.
 """
