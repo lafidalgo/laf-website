@@ -150,3 +150,14 @@ st.subheader("Projects & Accomplishments")
 st.write("---")
 for project, link in PROJECTS.items():
     st.write(f"[{project}]({link})")
+
+
+# --- Sidebar ---
+"""
+with st.sidebar:
+    st.header("My Projects")
+    st.subheader("Luiz Augusto")
+    st.write("Oi")
+"""
+
+st.sidebar.success("Select a page above.")
