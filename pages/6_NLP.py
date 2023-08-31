@@ -3,17 +3,18 @@ from pathlib import Path
 import streamlit as st
 
 # --- GENERAL SETTINGS ---
-PAGE_TITLE = "LAF Solutions"
+PAGE_TITLE = "LAF Solutions | NLP"
 PAGE_ICON = "💻"
-NAME = "LAF Solutions"
+NAME = "Natural Language Processing (NLP)"
 DESCRIPTION = """
-Transforming tomorrow through AI innovation, pioneer intelligent solutions for a smarter world.
+Empowering language with intelligence, our NLP solutions bridge the gap between humans and machines, enabling seamless communication and understanding.
 """
 
 st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
 
 # --- PATH SETTINGS ---
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
+current_dir = current_dir.parent # Since we added the file into /pages
 css_file = current_dir / "styles" / "main.css"
 
 # --- LOAD CSS, PDF & PROFIL PIC ---
