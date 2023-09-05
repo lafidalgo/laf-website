@@ -23,7 +23,7 @@ profile_pic = current_dir / "assets" / "profile-pic.png"
 
 # --- GENERAL SETTINGS ---
 PAGE_TITLE = "LAF Solutions | About"
-PAGE_ICON = "💻"
+PAGE_ICON = "favicon.ico"
 NAME = f'{name}  {surname}'
 DESCRIPTION = """
 Bachelor of Electrical Engineering & AI Consultant, assisting enterprises by supporting data-driven decision-making.

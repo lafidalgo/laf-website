@@ -4,7 +4,7 @@ import streamlit as st
 
 # --- GENERAL SETTINGS ---
 PAGE_TITLE = "LAF Solutions | NLP"
-PAGE_ICON = "💻"
+PAGE_ICON = "favicon.ico"
 NAME = "Natural Language Processing (NLP)"
 DESCRIPTION = """
 Empowering language with intelligence, our NLP solutions bridge the gap between humans and machines, enabling seamless communication and understanding.

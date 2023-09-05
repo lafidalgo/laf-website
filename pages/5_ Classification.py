@@ -4,7 +4,7 @@ import streamlit as st
 
 # --- GENERAL SETTINGS ---
 PAGE_TITLE = "LAF Solutions | Classification"
-PAGE_ICON = "💻"
+PAGE_ICON = "favicon.ico"
 NAME = "Classification"
 DESCRIPTION = """
 From chaos to clarity, our classification systems discern patterns in data, illuminating insights that drive informed decisions.

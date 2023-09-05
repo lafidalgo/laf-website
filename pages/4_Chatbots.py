@@ -4,7 +4,7 @@ import streamlit as st
 
 # --- GENERAL SETTINGS ---
 PAGE_TITLE = "LAF Solutions | Chatbots"
-PAGE_ICON = "💻"
+PAGE_ICON = "favicon.ico"
 NAME = "Chatbots"
 DESCRIPTION = """
 Conversing at the intersection of technology and human interaction, our chatbots seamlessly connect and engage, enhancing user experiences like never before.

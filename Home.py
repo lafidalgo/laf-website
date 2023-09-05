@@ -4,7 +4,7 @@ import streamlit as st
 
 # --- GENERAL SETTINGS ---
 PAGE_TITLE = "LAF Solutions"
-PAGE_ICON = "💻"
+PAGE_ICON = "favicon.ico"
 NAME = "LAF Solutions"
 DESCRIPTION = """
 Transforming tomorrow through AI innovation, pioneer intelligent solutions for a smarter world.

@@ -4,7 +4,7 @@ import streamlit as st
 
 # --- GENERAL SETTINGS ---
 PAGE_TITLE = "LAF Solutions | Forecasting"
-PAGE_ICON = "💻"
+PAGE_ICON = "favicon.ico"
 NAME = "Forecasting"
 DESCRIPTION = """
 Peering into the future with analytical precision, our forecasting solutions empower informed decisions in an uncertain world.

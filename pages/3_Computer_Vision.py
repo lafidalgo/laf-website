@@ -4,7 +4,7 @@ import streamlit as st
 
 # --- GENERAL SETTINGS ---
 PAGE_TITLE = "LAF Solutions | Computer Vision"
-PAGE_ICON = "💻"
+PAGE_ICON = "favicon.ico"
 NAME = "Computer Vision"
 DESCRIPTION = """
 Unveiling the unseen through pixels and algorithms, our computer vision technology redefines how we perceive and interact with the visual world.
