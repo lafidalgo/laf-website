@@ -14,6 +14,9 @@ NAME = "Computer Vision"
 DESCRIPTION = """
 Unveiling the unseen through pixels and algorithms, our computer vision technology redefines how we perceive and interact with the visual world.
 """
+OCR_DESCRIPTION = """
+Optical Character Recognition (OCR) is a technology that converts printed or handwritten text from images into machine-readable text. It plays a crucial role in digitizing documents, automating data entry, and enhancing accessibility for individuals with visual impairments. Advancements in deep learning and AI continue to improve OCR's accuracy and expand its applications in various industries.
+"""
 
 st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
 
@@ -29,12 +32,17 @@ with open(css_file) as f:
 st.title(NAME)
 st.write(DESCRIPTION)
 
+st.header("Optical Character Recognition (OCR)")
+st.write(OCR_DESCRIPTION)
+
 # Add a file uploader widget
 uploaded_file = st.file_uploader("Choose a file", type=["png", "jpg"])
+# Add a select-from-options widget
+selected_language = st.selectbox("Select a language", ["eng", "por"])
 
 if uploaded_file is not None:
     with st.spinner("Loading ocr..."):
-        request_params = {"output_type": "string", "lang": "eng", "config": "--psm 6", "nice": 0, "timeout": 0}
+        request_params = {"output_type": "string", "lang": selected_language, "config": "--psm 6", "nice": 0, "timeout": 0}
 
         files = []
         filename = uploaded_file.name
@@ -45,7 +53,7 @@ if uploaded_file is not None:
         data_request = request.json()
         ocr = data_request['results'][filename]
 
-        st.write(f"OCR:\n\n{ocr}")
+        st.write(f"{ocr}")
 
 with st.sidebar:
     pass
