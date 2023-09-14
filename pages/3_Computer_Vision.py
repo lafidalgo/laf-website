@@ -38,7 +38,7 @@ def compress_image(image, max_size_kb=200):
         color_depth = None
 
     size_in_kb = calculate_image_size_in_kb(compressed_image.size[0], compressed_image.size[1], color_depth)
-
+    st.write(f"Image original size is {size_in_kb:.2f} KB")
     while size_in_kb > max_size_kb:
         # Compress the image by resizing it to a smaller size
         compressed_image = compressed_image.resize((int(compressed_image.width * 0.9), int(compressed_image.height * 0.9)))
