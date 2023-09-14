@@ -53,7 +53,7 @@ if uploaded_file is not None:
         data_request = request.json()
         ocr = data_request['results'][filename]
 
-        st.write(f"{ocr}")
+        st.success(f"{ocr}")
 
 with st.sidebar:
     pass
