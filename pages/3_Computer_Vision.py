@@ -91,15 +91,16 @@ uploaded_file = st.file_uploader("Choose a file", type=["png", "jpg"])
 selected_language = st.selectbox("Select a language", ["eng", "por"])
 
 if uploaded_file is not None:
-    with st.spinner("Compressing file..."):
-        compressed_image_bytes = compress_image(uploaded_file)
+    #with st.spinner("Compressing file..."):
+        #compressed_image_bytes = compress_image(uploaded_file)
 
     with st.spinner("Loading ocr..."):
         request_params = {"output_type": "string", "lang": selected_language, "config": "--psm 6", "nice": 0, "timeout": 0}
 
         files = []
         filename = uploaded_file.name
-        file_data = compressed_image_bytes.read()
+        #file_data = compressed_image_bytes.read()
+        file_data = uploaded_file.read()
         files.append(('files', (filename, file_data)))
 
         request = requests.post(url=URL, params=request_params, files=files) 
