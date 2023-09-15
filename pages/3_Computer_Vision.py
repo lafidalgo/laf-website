@@ -3,7 +3,7 @@ from pathlib import Path
 import streamlit as st
 
 import requests
-from PIL import Image
+from PIL import Image, ImageEnhance
 import io
 
 def compress_image(uploaded_file, max_size_kb=200):
@@ -16,6 +16,10 @@ def compress_image(uploaded_file, max_size_kb=200):
 
     # Convert the image to grayscale (black and white)
     image = image.convert('L')
+
+    # Contrast enhancement
+    enhancer = ImageEnhance.Contrast(image)
+    image = enhancer.enhance(2.0)  # Adjust the enhancement factor as needed
 
     # Convert the maximum size to bytes
     max_size_bytes = max_size_kb * 1024
