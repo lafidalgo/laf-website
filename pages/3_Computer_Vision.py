@@ -18,8 +18,8 @@ def compress_image(uploaded_file, max_size_kb=200):
     image = image.convert('L')
 
     # Contrast enhancement
-    enhancer = ImageEnhance.Contrast(image)
-    image = enhancer.enhance(2.0)  # Adjust the enhancement factor as needed
+    # enhancer = ImageEnhance.Contrast(image)
+    # image = enhancer.enhance(2.0)  # Adjust the enhancement factor as needed
 
     # Convert the maximum size to bytes
     max_size_bytes = max_size_kb * 1024
