@@ -14,6 +14,9 @@ def compress_image(uploaded_file, max_size_kb=200):
     image = Image.open(uploaded_file)
     img_format = image.format.lower()
 
+    # Convert the image to grayscale (black and white)
+    image = image.convert('L')
+
     # Convert the maximum size to bytes
     max_size_bytes = max_size_kb * 1024
 
