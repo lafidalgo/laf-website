@@ -47,6 +47,7 @@ def compress_image(uploaded_file, max_size_kb=200):
 
 # --- REQUEST SETTINGS ---
 URL = "https://api.ocr-pytesseract.lafsolutions.com.br/ocr/"
+# URL = "http://127.0.0.1:8000/ocr/"
 
 # --- GENERAL SETTINGS ---
 PAGE_TITLE = "LAF Solutions | Computer Vision"
@@ -82,17 +83,17 @@ uploaded_file = st.file_uploader("Choose a file", type=["png", "jpg"])
 selected_language = st.selectbox("Select a language", ["eng", "por"])
 
 if uploaded_file is not None:
-    with st.spinner("Compressing image..."):
-        file_data = uploaded_file.read()
-        original_size_kb = len(file_data)/1024
-        st.write(f"Image original size is {original_size_kb:.1f} kbs")
-        max_size_kb = 200
-        if original_size_kb > max_size_kb:
-            compressed_image_bytes = compress_image(uploaded_file, max_size_kb=max_size_kb)
-            file_data = compressed_image_bytes.read()
-        compressed_size_kb = len(file_data)/1024
-        st.write(f"Image compressed size is {compressed_size_kb:.1f} kbs")
-        st.image(file_data)
+    file_data = uploaded_file.read()
+    #with st.spinner("Compressing image..."):
+    #    original_size_kb = len(file_data)/1024
+    #    st.write(f"Image original size is {original_size_kb:.1f} kbs")
+    #    max_size_kb = 200
+    #    if original_size_kb > max_size_kb:
+    #        compressed_image_bytes = compress_image(uploaded_file, max_size_kb=max_size_kb)
+    #        file_data = compressed_image_bytes.read()
+    #    compressed_size_kb = len(file_data)/1024
+    #    st.write(f"Image compressed size is {compressed_size_kb:.1f} kbs")
+    st.image(file_data)
 
     with st.spinner("Loading ocr..."):
         request_params = {"output_type": "string", "lang": selected_language, "config": "--psm 6", "nice": 0, "timeout": 0}
