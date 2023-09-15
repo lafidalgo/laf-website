@@ -17,10 +17,6 @@ def compress_image(uploaded_file, max_size_kb=200):
     # Convert the image to grayscale (black and white)
     image = image.convert('L')
 
-    # Contrast enhancement
-    # enhancer = ImageEnhance.Contrast(image)
-    # image = enhancer.enhance(2.0)  # Adjust the enhancement factor as needed
-
     # Convert the maximum size to bytes
     max_size_bytes = max_size_kb * 1024
 
@@ -99,7 +95,7 @@ if uploaded_file is not None:
         st.image(file_data)
 
     with st.spinner("Loading ocr..."):
-        request_params = {"output_type": "string", "lang": selected_language, "config": "--psm 12", "nice": 0, "timeout": 0}
+        request_params = {"output_type": "string", "lang": selected_language, "config": "--psm 6", "nice": 0, "timeout": 0}
 
         files = []
         filename = uploaded_file.name
