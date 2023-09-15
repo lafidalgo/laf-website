@@ -19,7 +19,7 @@ def compress_image(uploaded_file, max_size_kb=200):
 
     # Get the current image size in bytes
     original_image_bytes = io.BytesIO()
-    image.save(original_image_bytes, format=img_format)
+    image.save(original_image_bytes, optimize=True, format=img_format)
     original_image_size_bytes = original_image_bytes.tell()
 
     # Calculate the scale factor to fit within the desired size
@@ -35,7 +35,7 @@ def compress_image(uploaded_file, max_size_kb=200):
     compressed_image_bytes = io.BytesIO()
 
     # Save the resized image to the buffer
-    resized_image.save(compressed_image_bytes, format=img_format)
+    resized_image.save(compressed_image_bytes, optimize=True, format=img_format)
 
     # Reset the buffer and return the compressed image bytes
     compressed_image_bytes.seek(0)
@@ -89,7 +89,7 @@ if uploaded_file is not None:
             file_data = compressed_image_bytes.read()
         compressed_size_kb = len(file_data)/1024
         st.write(f"Image compressed size is {compressed_size_kb:.1f} kbs")
-        #st.image(file_data)
+        st.image(file_data)
 
     with st.spinner("Loading ocr..."):
         request_params = {"output_type": "string", "lang": selected_language, "config": "--psm 6", "nice": 0, "timeout": 0}
