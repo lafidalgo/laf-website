@@ -5,6 +5,7 @@ import streamlit as st
 import requests
 from PIL import Image, ImageEnhance
 import io
+import base64
 
 def compress_image(uploaded_file, max_size_kb=200):
     """
@@ -104,9 +105,13 @@ if uploaded_file is not None:
         
         request = requests.post(url=URL, params=request_params, files=files) 
         data_request = request.json()
-        ocr = data_request['results'][filename]
+        ocr = data_request['results'][filename]['ocr']
 
         st.success(f"{ocr}")
+
+        final_image_base64 = data_request['results'][filename]['final_image_base64']
+        final_image_base64 = Image.open(io.BytesIO(base64.b64decode(final_image_base64)))
+        st.image(final_image_base64)
 
 with st.sidebar:
     pass
