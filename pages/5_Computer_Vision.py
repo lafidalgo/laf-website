@@ -3,11 +3,11 @@ from pathlib import Path
 import streamlit as st
 
 # --- GENERAL SETTINGS ---
-PAGE_TITLE = "LAF Solutions | NLP"
+PAGE_TITLE = "LAF Solutions | Computer Vision"
 PAGE_ICON = "favicon.ico"
-NAME = "Natural Language Processing (NLP)"
+NAME = "Computer Vision"
 DESCRIPTION = """
-Empowering language with intelligence, our NLP solutions bridge the gap between humans and machines, enabling seamless communication and understanding.
+Unveiling the unseen through pixels and algorithms, our computer vision technology redefines how we perceive and interact with the visual world.
 """
 
 st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
