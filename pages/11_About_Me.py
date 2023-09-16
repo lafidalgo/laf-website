@@ -14,10 +14,9 @@ SOCIAL_MEDIA = {
     "GitHub": "https://github.com/lafidalgo/",
 }
 PROJECTS = {
-    "🏆 Sales Dashboard - Comparing sales across three stores": "https://youtu.be/Sb0A9i6d320",
-    "🏆 Income and Expense Tracker - Web app with NoSQL database": "https://youtu.be/3egaMfE9388",
-    "🏆 Desktop Application - Excel2CSV converter with user settings & menubar": "https://youtu.be/LzCfNanQ_9c",
-    "🏆 MyToolBelt - Custom MS Excel add-in to combine Python & Excel": "https://pythonandvba.com/mytoolbelt/",
+    "🏆 OCR Pytesseract - Extract text from images": "https://www.lafsolutions.com.br/OCR_Pytesseract",
+    "🏆 OCR Layout Parser - Extract text and layout from images": "https://www.lafsolutions.com.br/OCR_Layout_Parser",
+    "🏆 Local Whisper AI - Extract text from audio": "https://www.lafsolutions.com.br/Whisper_AI",
 }
 
 root_dir = general_settings.get_root_dir()
@@ -59,15 +58,14 @@ for index, (platform, link) in enumerate(SOCIAL_MEDIA.items()):
     cols[index].write(f"[{platform}]({link})")
 
 
-# --- EXPERIENCE & QUALIFICATIONS ---
+# --- EDUCATION ---
 st.write('\n')
-st.subheader("Experience & Qualifications")
+st.subheader("Education")
 st.write(
     """
-- ✔️ 7 Years expereince extracting actionable insights from data
-- ✔️ Strong hands on experience and knowledge in Python and Excel
-- ✔️ Good understanding of statistical principles and their respective applications
-- ✔️ Excellent team-player and displaying strong sense of initiative on tasks
+- ✔️ University Exchange: **University of Rome Tor Vergata, Italy** (Feb. 2023 - Aug.2023)
+- ✔️ Bachelor of Electrical Engineering: **University of Brasília (UnB), Brazil** (2018 - 2023)
+- ✔️ Final Thesis:  Inventory monitoring through weight variation using low power consumption techniques and wireless communication
 """
 )
 
@@ -77,10 +75,9 @@ st.write('\n')
 st.subheader("Hard Skills")
 st.write(
     """
-- 👩‍💻 Programming: Python (Scikit-learn, Pandas), SQL, VBA
+- 👩‍💻 Programming: Python, C, C++, ESP-IDF, Code Composer, Arduino IDE
+- 🛠️ Hardware Development: Circuits Design, PCB Design, Soldering, 3D Printing
 - 📊 Data Visulization: PowerBi, MS Excel, Plotly
-- 📚 Modeling: Logistic regression, linear regression, decition trees
-- 🗄️ Databases: Postgres, MongoDB, MySQL
 """
 )
 
@@ -91,37 +88,47 @@ st.subheader("Work History")
 st.write("---")
 
 # --- JOB 1
-st.write("🚧", "**Senior Data Analyst | Ross Industries**")
-st.write("02/2020 - Present")
+st.write("🚧", "**AI Consultant | SnowFox AI**")
+st.write("09/2023 - Present")
 st.write(
     """
-- ► Used PowerBI and SQL to redeﬁne and track KPIs surrounding marketing initiatives, and supplied recommendations to boost landing page conversion rate by 38%
-- ► Led a team of 4 analysts to brainstorm potential marketing and sales improvements, and implemented A/B tests to generate 15% more client leads
-- ► Redesigned data model through iterations that improved predictions by 12%
+- ► Developed a machine learning application that performs Visual Document Understanding (VDU) to extract complex information from contracts and balance sheets
+- ► Had experience with the full cycle of a machine learning project, from data collection to model deployment
 """
 )
 
 # --- JOB 2
 st.write('\n')
-st.write("🚧", "**Data Analyst | Liberty Mutual Insurance**")
-st.write("01/2018 - 02/2022")
+st.write("🚧", "**Hardware Development Intern | Orion Telecommunications**")
+st.write("03/2021 - 12/2022")
 st.write(
     """
-- ► Built data models and maps to generate meaningful insights from customer data, boosting successful sales eﬀorts by 12%
-- ► Modeled targets likely to renew, and presented analysis to leadership, which led to a YoY revenue increase of $300K
-- ► Compiled, studied, and inferred large amounts of data, modeling information to drive auto policy pricing
+- ► Worked with hardware and firmware development at the spin-off BeSX.
+- ► Participated in the development of 5 sensor prototypes.
+- ► Participated in the production, testing and installation of over 200 units of one of the developed sensors.
+- ► Awarded as the company's Outstanding Intern of 2021.
 """
 )
 
 # --- JOB 3
 st.write('\n')
-st.write("🚧", "**Data Analyst | Chegg**")
-st.write("04/2015 - 01/2018")
+st.write("🚧", "**Academic Researcher | CNPq**")
+st.write("07/2020 - 01/2023")
 st.write(
     """
-- ► Devised KPIs using SQL across company website in collaboration with cross-functional teams to achieve a 120% jump in organic traﬃc
-- ► Analyzed, documented, and reported user survey results to improve customer communication processes by 18%
-- ► Collaborated with analyst team to oversee end-to-end process surrounding customers' return data
+- ► Responsible for the development of an assistive human-computer communication methodology for typing.
+- ► Article published in the scientific journal [IJCAT](https://www.inderscience.com/info/inarticle.php?artid=130290).
+"""
+)
+
+# --- JOB 4
+st.write('\n')
+st.write("🚧", "**CEO | ENETEC - Junior Consulting**")
+st.write("01/2020 - 12/2020")
+st.write(
+    """
+- ► Responsible for managing the junior enterprise's internal strategy and conducting its adaptation during the pandemic.
+- ► Leadership of 39 members throughout the year.
 """
 )
 
