@@ -1,19 +1,9 @@
-from pathlib import Path
-
 import streamlit as st
 from PIL import Image
 
-# --- PATH SETTINGS ---
-current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
-current_dir = current_dir.parent # Since we added the file into /pages
-css_file = current_dir / "styles" / "main.css"
-resume_file = current_dir / "assets" / "CV.pdf"
-profile_pic = current_dir / "assets" / "profile-pic.png"
-
+import general_settings
 
 # --- GENERAL SETTINGS ---
-PAGE_TITLE = "LAF Solutions | About"
-PAGE_ICON = "favicon.ico"
 NAME = "Luiz Augusto Fidalgo"
 DESCRIPTION = """
 Bachelor of Electrical Engineering & AI Consultant, assisting enterprises by supporting data-driven decision-making.
@@ -30,13 +20,16 @@ PROJECTS = {
     "🏆 MyToolBelt - Custom MS Excel add-in to combine Python & Excel": "https://pythonandvba.com/mytoolbelt/",
 }
 
+root_dir = general_settings.get_root_dir()
+general_settings.config_page()
+general_settings.load_css(root_dir)
 
-st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
+# --- PATH SETTINGS ---
+resume_file = root_dir / "assets" / "CV.pdf"
+profile_pic = root_dir / "assets" / "profile-pic.png"
 
 
-# --- LOAD CSS, PDF & PROFIL PIC ---
-with open(css_file) as f:
-    st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
+# --- LOAD PDF & PROFIL PIC ---
 with open(resume_file, "rb") as pdf_file:
     PDFbyte = pdf_file.read()
 profile_pic = Image.open(profile_pic)
@@ -141,10 +134,5 @@ for project, link in PROJECTS.items():
     st.write(f"[{project}]({link})")
 
 
-# --- Sidebar ---
 with st.sidebar:
-    #st.header("My Projects")
-    #st.subheader("Luiz Augusto")
-    #st.write("Oi")
     pass
-# st.sidebar.success("Select a page above.")
