@@ -43,7 +43,7 @@ if uploaded_file:
     st.image(file_data, output_format="PNG")
 
     with st.spinner("Loading ocr..."):
-        request_params = {"output_type": "string", "lang": selected_language, "config": "--psm 6", "nice": 0, "timeout": 0}
+        request_params = {"lang": selected_language}
 
         files = []
         filename = uploaded_file.name
