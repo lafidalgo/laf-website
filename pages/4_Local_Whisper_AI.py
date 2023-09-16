@@ -11,9 +11,6 @@ URL = "https://api.ocr-pytesseract.lafsolutions.com.br/ocr/"
 # --- GENERAL SETTINGS ---
 NAME = "Audio Transcription"
 DESCRIPTION = """
-Empowering language with intelligence, our NLP solutions bridge the gap between humans and machines, enabling seamless communication and understanding.
-"""
-AUDIO_TRANSCRIPT_DESCRIPTION = """
 Audio transcription is the process of converting spoken language or audio content into written text. It involves listening to the audio and transcribing it verbatim, capturing spoken words, and sometimes including contextual information like speaker identification and timestamps. This text-based representation makes audio content accessible, searchable, and easier to analyze or reference.
 """
 
