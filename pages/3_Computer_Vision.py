@@ -6,6 +6,7 @@ import requests
 from PIL import Image, ImageEnhance
 import io
 import base64
+from streamlit_cropperjs import st_cropperjs
 
 def compress_image(uploaded_file, max_size_kb=200):
     """
@@ -79,39 +80,31 @@ st.header("Optical Character Recognition (OCR)")
 st.write(OCR_DESCRIPTION)
 
 # Add a file uploader widget
-uploaded_file = st.file_uploader("Choose a file", type=["png", "jpg"])
+uploaded_file = st.file_uploader("Upload a picture", key="uploaded_pic", type=["png", "jpg"])
 # Add a select-from-options widget
 selected_language = st.selectbox("Select a language", ["eng", "por"])
+if uploaded_file:
+    pic = uploaded_file.read()
+    cropped_pic = st_cropperjs(pic=pic, btn_text="Detect!", key="foo")
+    if cropped_pic:
+        st.image(cropped_pic, output_format="PNG")
+        file_data = cropped_pic
+        with st.spinner("Loading ocr..."):
+            request_params = {"output_type": "string", "lang": selected_language, "config": "--psm 6", "nice": 0, "timeout": 0}
 
-if uploaded_file is not None:
-    file_data = uploaded_file.read()
-    #with st.spinner("Compressing image..."):
-    #    original_size_kb = len(file_data)/1024
-    #    st.write(f"Image original size is {original_size_kb:.1f} kbs")
-    #    max_size_kb = 200
-    #    if original_size_kb > max_size_kb:
-    #        compressed_image_bytes = compress_image(uploaded_file, max_size_kb=max_size_kb)
-    #        file_data = compressed_image_bytes.read()
-    #    compressed_size_kb = len(file_data)/1024
-    #    st.write(f"Image compressed size is {compressed_size_kb:.1f} kbs")
-    st.image(file_data)
+            files = []
+            filename = uploaded_file.name
+            files.append(('files', (filename, file_data)))
+            
+            request = requests.post(url=URL, params=request_params, files=files) 
+            data_request = request.json()
+            ocr = data_request['results'][filename]['ocr']
 
-    with st.spinner("Loading ocr..."):
-        request_params = {"output_type": "string", "lang": selected_language, "config": "--psm 6", "nice": 0, "timeout": 0}
+            st.success(f"{ocr}")
 
-        files = []
-        filename = uploaded_file.name
-        files.append(('files', (filename, file_data)))
-        
-        request = requests.post(url=URL, params=request_params, files=files) 
-        data_request = request.json()
-        ocr = data_request['results'][filename]['ocr']
-
-        st.success(f"{ocr}")
-
-        final_image_base64 = data_request['results'][filename]['final_image_base64']
-        final_image_base64 = Image.open(io.BytesIO(base64.b64decode(final_image_base64)))
-        st.image(final_image_base64)
+            final_image_base64 = data_request['results'][filename]['final_image_base64']
+            final_image_base64 = Image.open(io.BytesIO(base64.b64decode(final_image_base64)))
+            st.image(final_image_base64)
 
 with st.sidebar:
     pass
