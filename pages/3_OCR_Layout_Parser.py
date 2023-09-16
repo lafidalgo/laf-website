@@ -17,10 +17,7 @@ PAGE_TITLE = "LAF Solutions | Computer Vision"
 PAGE_ICON = "favicon.ico"
 NAME = "Computer Vision"
 DESCRIPTION = """
-Unveiling the unseen through pixels and algorithms, our computer vision technology redefines how we perceive and interact with the visual world.
-"""
-OCR_DESCRIPTION = """
-Optical Character Recognition (OCR) is a technology that converts printed or handwritten text from images into machine-readable text. It plays a crucial role in digitizing documents, automating data entry, and enhancing accessibility for individuals with visual impairments. Advancements in deep learning and AI continue to improve OCR's accuracy and expand its applications in various industries.
+Optical Character Recognition (OCR) is a technology that converts printed or handwritten text from images into machine-readable text.
 """
 
 st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
@@ -34,11 +31,8 @@ css_file = current_dir / "styles" / "main.css"
 with open(css_file) as f:
     st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
 
-st.title(NAME)
+st.title("Optical Character Recognition (OCR)")
 st.write(DESCRIPTION)
-
-st.header("Optical Character Recognition (OCR)")
-st.write(OCR_DESCRIPTION)
 
 # Add a file uploader widget
 uploaded_file = st.file_uploader("Upload a picture", key="uploaded_pic", type=["png", "jpg"])
